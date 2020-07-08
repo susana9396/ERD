@@ -55,10 +55,11 @@ SELECT * FROM lead_gen_business.leads;
 SELECT * FROM lead_gen_business.sites;
 SELECT * FROM lead_gen_business.clients;
 
-SELECT  c.first_name as nombre_cliente, c.last_name as apellido_cliente, count(l.leads_id) as clientes_potenciales
+SELECT  c.first_name as nombre_cliente, c.last_name as apellido_cliente, count(l.leads_id) as clientes_potenciales, registered_datetime
 FROM sites s
 JOIN clients c ON c.client_id= s.client_id
 JOIN leads l ON l.site_id=s.site_id
+WHERE year(registered_datetime)='2011'
 GROUP BY nombre_cliente 
   ;
 
