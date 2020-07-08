@@ -62,7 +62,9 @@ FROM users u
   ;
   
 -- Eliminar a Marky Mark de los amigos de Eli.
-
+  SELECT id first_name FROM users 
+    WHERE first_name='Eli' OR first_name='Marky'
+    ;
   DELETE  FROM friendships
   WHERE user_id='2' AND friend_id='5'OR user_id='5' AND friend_id='2'
   ;
